@@ -29,9 +29,10 @@ namp -sT <victim-ip>
 
 The scan generated multiple connection attempts to different ports on the target machine.
 
-<p align="center"><img src="/01-Reconnaissance-Nmap/screenshorts/01-nmap-scan.png" width="700"/></p>
-
-*Figure 1: Nmap scan results identifying open ports on the target system.*
+<div align="center">
+  <img src="/01-Reconnaissance-Nmap/screenshorts/01-nmap-scan.png" width="700" />
+  <p><em>Figure 1: Nmap scan results identifying open ports on the target system.</em></p>
+</div>
 
 ---
 
@@ -45,10 +46,11 @@ Key observations:
 * Different destination ports targeted
 * High frequency of connections in a short time
 
-<p align="center"><img src="./screenshorts/02-raw-logs.png" width="700"/></p>
-<p align="center"><img src="./screenshorts/03-extanded-raw-logs.png" width="700"/></p>
-
-*Figure 2 & 3: Activity Detected in Splunk*
+<div align="center">
+  <img src="./screenshorts/02-raw-logs.png" width="700" />
+  <img src="./screenshorts/03-extanded-raw-logs.png" width="700" />
+  <p><em>Figure 2 &amp; 3: Activity Detected in Splunk.</em></p>
+</div>
 
 ---
 
@@ -66,7 +68,10 @@ index=main EventCode=3
 
 This query highlights systems that connect to a large number of ports, which is indicative of scanning activity.
 
-<p align="center"><img src="./screenshorts/04-detection-query-results.png" width="700"/></p>
+<div align="center">
+  <img src="./screenshorts/04-detection-query-results.png" width="700" />
+  <p><em>Figure 4: Splunk detection query results for port scan behavior.</em></p>
+</div>
 
 ---
 
