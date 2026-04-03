@@ -13,12 +13,12 @@ The lab environment is intentionally simple: an attacker machine simulates recon
 Kali Linux (Attacker)
         │
         │  Network Activity / Reconnaissance
-        ▼
+        V
 Windows 10 VM
 (Sysmon Telemetry)
         │
         │  Event Logs
-        ▼
+        V
 Splunk Enterprise
 (Log Analysis & Detection)
 ```
