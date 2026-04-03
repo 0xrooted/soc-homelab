@@ -2,9 +2,9 @@
 
 ## Overview
 
-This stage documents the initial setup of a small SOC homelab environment used to simulate attacker activity and analyze host telemetry.
+This stage covers the initial setup of a small SOC homelab environment used for generating and analyzing security telemetry.
 
-The goal of this stage is to establish an isolated lab where security events can be generated and later investigated using SIEM tools.
+The objective is to create an isolated setup where system activity can be monitored and later analyzed using a SIEM.
 
 ---
 
@@ -13,31 +13,31 @@ The goal of this stage is to establish an isolated lab where security events can
 ```text
 Attacker Machine (Kali Linux)
         │
-        │  Reconnaissance Activity
-        V
+        │  Simulated Activity
+        ▼
 Windows 10 Virtual Machine
 (Sysmon Telemetry)
         │
         │  Windows Event Logs
-        V
+        ▼
 Splunk Enterprise (SIEM)
 ```
 
-This architecture allows attack simulation while keeping the host system isolated from the lab network.
+This architecture keeps all activity contained within a controlled lab environment.
 
 ---
 
 ## Network Configuration
 
-The lab runs inside a **host-only virtual network** to ensure that all activity remains isolated.
+The lab operates on a **host-only virtual network**, ensuring that all traffic remains isolated from external networks.
 
-Lab Network Range:
+**Network Range:**
 
 ```
-192.168.x.x (Host-only virtual network)
+192.168.x.x
 ```
 
-Example configuration:
+**System Roles:**
 
 | System        | Role             |
 | ------------- | ---------------- |
@@ -60,72 +60,54 @@ Example configuration:
 ### Victim System
 
 * Windows 10 Virtual Machine
-* Sysmon (system telemetry)
+* Sysmon (for system telemetry)
 
 ### Monitoring
 
-* Splunk Enterprise (log analysis)
-* Wireshark (optional packet inspection)
+* Splunk Enterprise
+* Wireshark *(optional)*
 
 ---
 
 ## Environment Validation
 
-To confirm that the lab environment was configured correctly, connectivity between the attacker and target machines was tested.
+Connectivity between systems was verified to ensure proper communication within the lab network.
 
-Example command:
+Example:
 
-```
+```bash
 ping <target-system>
 ```
 
-Successful replies confirm communication between the two systems.
-
----
-
-## Reconnaissance Simulation
-
-A basic network reconnaissance scan was performed from the attacker machine.
-
-Example command:
-
-```
-nmap -sT -Pn <target-system>
-```
-
-The scan identified several Windows services exposed on the system, including services commonly associated with RPC and SMB.
-
-From a defensive perspective, this type of activity is typically associated with **network reconnaissance** performed before an attack.
+Successful responses confirm that the environment is correctly configured.
 
 ---
 
 ## SOC Perspective
 
-Port scanning and service discovery are categorized as reconnaissance activities.
+From a monitoring standpoint, this setup enables:
 
-Relevant MITRE ATT&CK technique:
+* Collection of endpoint telemetry using Sysmon
+* Centralized log analysis using Splunk
+* Controlled generation of activity for analysis
 
-```
-T1046 – Network Service Discovery
-```
-
-Security analysts monitor such activity to detect potential attackers mapping the network before attempting exploitation or lateral movement.
+This forms the foundation required for detection and investigation workflows.
 
 ---
 
 ## Key Takeaways
 
-* A controlled SOC homelab environment was successfully created.
-* Network connectivity between attacker and victim machines was verified.
-* Basic reconnaissance activity was simulated.
-* The lab is now ready for log ingestion and detection analysis.
+* A functional SOC homelab environment was successfully established
+* Network isolation was implemented using a host-only configuration
+* Communication between systems was verified
+* The lab is ready for log ingestion and analysis
 
 ---
 
 ## Next Stage
 
-The next phase of the project focuses on:
+The next phase focuses on:
 
-* ingesting Windows logs into Splunk
-* building detection queries
-* investigating simulated attack activity
+* Ingesting Windows logs into Splunk
+* Exploring event data
+* Building initial detection queries

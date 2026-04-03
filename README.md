@@ -1,9 +1,10 @@
 # SOC Homelab
 
 This repository documents the process of building and experimenting with a small Security Operations Center (SOC) homelab.
-The goal of this project is to understand how attacks generate telemetry and how defenders can investigate those events using host logs and a SIEM.
 
-The lab environment is intentionally simple: an attacker machine simulates reconnaissance and other activity, a Windows system generates telemetry using Sysmon, and logs are analyzed in Splunk.
+The objective of this project is to gain practical understanding of how attacker activity generates telemetry and how those events can be investigated using endpoint logs and a SIEM.
+
+The lab is intentionally kept simple and focused. An attacker machine is used to simulate activity, a Windows system generates telemetry using Sysmon, and all logs are analyzed in Splunk.
 
 ---
 
@@ -12,8 +13,8 @@ The lab environment is intentionally simple: an attacker machine simulates recon
 ```
 Kali Linux (Attacker)
         │
-        │  Network Activity / Reconnaissance
-        V
+        │  Simulated Activity / Reconnaissance
+        ▼
 Windows 10 VM
 (Sysmon Telemetry)
         │
@@ -23,31 +24,31 @@ Splunk Enterprise
 (Log Analysis & Detection)
 ```
 
-This setup allows controlled attack simulation while keeping the host system isolated.
+This setup enables controlled simulation of attacks while keeping everything contained within an isolated environment.
 
 ---
 
 ## Components
 
-**Attacker Machine**
+### Attacker Machine
 
 * Kali Linux
-* Tools used for simulation:
+* Tools used:
 
   * Nmap
   * Hydra
   * Netcat
   * Curl
 
-**Victim System**
+### Victim System
 
 * Windows 10 Virtual Machine
-* Sysmon for enhanced event logging
+* Sysmon (for enhanced logging and visibility)
 
-**Monitoring / Analysis**
+### Monitoring & Analysis
 
-* Splunk Enterprise (running on host)
-* Wireshark (optional packet inspection)
+* Splunk Enterprise
+* Wireshark *(optional, for packet-level inspection)*
 
 ---
 
@@ -57,54 +58,49 @@ This setup allows controlled attack simulation while keeping the host system iso
 SOC-Homelab
 │
 ├── 01-Lab-Setup
-├── 02-Log-Ingestion
-├── 03-Attack-Simulation
-├── 04-Detection-Rules
-└── 05-Incident-Investigation
 ```
 
-Each section documents a specific stage of building and using the lab.
+Each section represents a stage in building and using the lab, from initial setup to detection and investigation.
 
 ---
 
-## What This Lab Demonstrates
+## What This Lab Covers
 
-This project focuses on practical understanding of how security monitoring works.
+This project focuses on building a practical understanding of security monitoring and analysis.
 
-Key areas explored:
+Key areas include:
 
-* Network reconnaissance simulation
-* Host telemetry using Sysmon
-* Log ingestion and searching with Splunk
-* Basic detection logic
-* Incident investigation workflow
+* Simulating network reconnaissance
+* Collecting host telemetry using Sysmon
+* Ingesting and searching logs in Splunk
+* Writing basic detection logic
+* Performing simple incident investigations
 
 ---
 
 ## Example Scenario
 
-A simple reconnaissance scan can be simulated from the attacker machine.
+A basic reconnaissance scan can be simulated from the attacker machine:
 
 ```
 nmap -sT -Pn <target-ip>
 ```
 
-This activity helps demonstrate how network probing may appear from the defender’s perspective and how analysts can investigate it through available logs.
+This helps demonstrate how scanning activity appears from a defender’s perspective and how it can be investigated using available logs.
 
 ---
 
 ## Learning Goals
 
-This homelab is primarily used to practice:
+This lab is used to practice:
 
 * Understanding attacker behavior
-* Interpreting system telemetry
+* Interpreting endpoint telemetry
 * Investigating events in a SIEM
-* Documenting security analysis workflows
+* Documenting analysis and findings
 
 ---
 
 ## Notes
 
-This lab runs inside an isolated virtual environment.
-All activity is performed for educational purposes within the local lab network.
+All activities are performed in isolated virtual environment and are intended strictly for educational purposes.
