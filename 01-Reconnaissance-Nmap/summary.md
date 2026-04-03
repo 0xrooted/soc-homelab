@@ -30,6 +30,7 @@ namp -sT <victim-ip>
 The scan generated multiple connection attempts to different ports on the target machine.
 
 <img src="/01-Reconnaissance-Nmap/screenshorts/01-nmap-scan.png" width="700"/>   
+
 *Figure 1: Nmap scan results identifying open ports on the target system.*
 
 ---
@@ -45,7 +46,8 @@ Key observations:
 * High frequency of connections in a short time
 
 <img src="./screenshorts/02-raw-logs.png" width="700"/>
-<img src="./screenshorts/03-extanded-raw-logs.png" width="700"/>   
+<img src="./screenshorts/03-extanded-raw-logs.png" width="700"/>  
+
 *Figure 2 & 3: Activity Detected in Splunk*
 
 ---
@@ -64,7 +66,8 @@ index=main EventCode=3
 
 This query highlights systems that connect to a large number of ports, which is indicative of scanning activity.
 
-<img src="./screenshorts/04-detection-query-results.png" width="700"/>   
+<img src="./screenshorts/04-detection-query-results.png" width="700"/>  
+
 ---
 
 ## 6. MITRE ATT&CK Mapping
