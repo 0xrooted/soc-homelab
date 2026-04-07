@@ -96,7 +96,7 @@ index=main EventCode=13
 ```
 <div align="center">
   <img src="./screenshorts/05-persistence-registry-detection.png" width="700" />
-  <p><em>Figure 4:  Detection results identifying Registry Persistence activity</em></p>
+  <p><em>Figure 5:  Detection results identifying Registry Persistence activity</em></p>
 </div>
 
 ---
@@ -115,7 +115,7 @@ These queries help identify persistence mechanisms by monitoring registry change
 
 <div align="center">
   <img src="./screenshorts/04-task-scheduling-detection.png" width="700" />
-  <p><em>Figure 4:  Detection results identifying scheduled task creation activity</em></p>
+  <p><em>Figure 6:  Detection results identifying scheduled task creation activity</em></p>
 </div>
 
 ---
