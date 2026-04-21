@@ -54,7 +54,8 @@ This setup enables controlled simulation of attacks while keeping everything con
 
 ## Project Structure
 
-```SOC-Homelab
+```
+SOC-Homelab
 │
 ├── 01-reconnaissance-nmap-simulation
 │
