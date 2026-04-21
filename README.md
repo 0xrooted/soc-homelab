@@ -14,7 +14,7 @@ The lab is intentionally kept simple and focused. An attacker machine is used to
 Kali Linux (Attacker)
         │
         │  Simulated Activity / Reconnaissance
-        ▼
+        V
 Windows 10 VM
 (Sysmon Telemetry)
         │
@@ -54,10 +54,19 @@ This setup enables controlled simulation of attacks while keeping everything con
 
 ## Project Structure
 
-```
-SOC-Homelab
+```SOC-Homelab
 │
-├── 01-Lab-Setup
+├── 01-reconnaissance-nmap-simulation
+│
+├── 02-process-execution-simulation
+│
+├── 03-register-persistence-simulation
+│
+├── 04-c2-communitcation-simutation
+│
+├──05-data-exfiltration-simulation
+│
+├──06-dashboard-simulation
 ```
 
 Each section represents a stage in building and using the lab, from initial setup to detection and investigation.
@@ -75,18 +84,6 @@ Key areas include:
 * Ingesting and searching logs in Splunk
 * Writing basic detection logic
 * Performing simple incident investigations
-
----
-
-## Example Scenario
-
-A basic reconnaissance scan can be simulated from the attacker machine:
-
-```
-nmap -sT -Pn <target-ip>
-```
-
-This helps demonstrate how scanning activity appears from a defender’s perspective and how it can be investigated using available logs.
 
 ---
 
